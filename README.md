@@ -20,8 +20,8 @@ As asked, it can filter tasks by state
    ```bash
    python manage.py migrate
    ```
-3.1 **Execute Script in:**
-There is some default data that needs to be saved
+   a. **Execute Script in:**
+   There is some default data that needs to be saved
   ```bash
     cd script
   ```
@@ -41,11 +41,11 @@ There is some default data that needs to be saved
    ```
 3. **Start the development server:**
    ```bash
-   npm start
+   npm run dev
    ```
 
 ### Usage
-1. **Open your web browser and navigate to http://127.0.0.1:8000/.**
+1. **Open your web browser and navigate to http://127.0.0.1:5173/.**
 2. **Register or log in** to access the task manager.
 3. **Create, edit, and delete tasks** as needed.
 
