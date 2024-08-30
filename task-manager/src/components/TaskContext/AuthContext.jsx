@@ -8,7 +8,7 @@ export const AuthContext = createContext();
 // Hook personnalisé pour utiliser le contexte d'authentification
 
 // Fournisseur d'authentification
-export function AuthProvider({ children }) {
+export function AuthProvider({ children,navigate  }) {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
           } else {
             setIsAuthenticated(false);
             // localStorage.removeItem('token');
-            window.location.href='/login';  // Redirect to login page
+            navigate('/login')
           }
 
         } else {
@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
         console.error('Error checking authentication:', error);
         setIsAuthenticated(false);
         localStorage.removeItem('token');
-        window.location.href='/login';  // Redirect to login page
+        navigate('/login');  // Redirect to login page
       }
     };
 
@@ -75,9 +75,9 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
         const result= await secureAxiosInstance.post('/logout/');
-        if(result.status === 200 && result.data.token){
+        if(result.status === 2){
             localStorage.removeItem('token');
-            window.location.href = "/";
+            navigate("/");
             return true;
         }
     } catch (error) {
@@ -98,4 +98,5 @@ export function AuthProvider({ children }) {
 }
 AuthProvider.propTypes = {
     children: PropTypes.node.isRequired,
+    navigate : PropTypes.func
 };

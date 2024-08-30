@@ -2,9 +2,20 @@ import { useContext, useEffect, useState } from 'react';
 import { TaskContext } from './TaskContext';
 
 export const useTask = (filter) => {
-    const { deleteTask, updateTask, statesList, tasks, setTasks, getTasks, count, limit, saveTasks } = useContext(TaskContext);
+    const { deleteTask, updateTask, statesList, tasks, setTasks, getTasks, count, limit, saveTasks,offset } = useContext(TaskContext);
     const [filteredTasks, setFilteredTasks] = useState(tasks);
 
+    useEffect(() => {
+        if (filter) {
+            const fetchTasks = async () => {
+                await getTasks(offset, filter);
+            };
+            fetchTasks();
+        } else {
+            setFilteredTasks(tasks);
+        }
+    }, [filter, getTasks,offset]);
+    
     useEffect(() => {
         if (filter) {
             const fetchTasks = async () => {
@@ -14,7 +25,7 @@ export const useTask = (filter) => {
         } else {
             setFilteredTasks(tasks);
         }
-    }, [filter, getTasks]); // Removed `tasks` from the dependency array
+    }, [filter, getTasks]);
 
     useEffect(() => {
         setFilteredTasks(tasks);

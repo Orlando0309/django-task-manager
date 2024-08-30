@@ -41,11 +41,10 @@ export const TaskProvider = ({ children }) => {
         const savedTask=await secureAxiosInstance.post('/task/',data);
         if(savedTask.status === 201){
             if(offset ===0){
-                setTasks([savedTask.data,...tasks])
-                setCount(count+1)
+                getTasks()
             }
         }
-    },[count, offset, tasks])
+},[getTasks, offset])
     const updateTask= useCallback(async (id,data)=>{
         const updatedTask=await secureAxiosInstance.put(`/task/${id}/`,data);
         if(updatedTask.status === 200){
@@ -62,16 +61,16 @@ export const TaskProvider = ({ children }) => {
         if(deletedTask.status === 204){
                 const index=tasks.findIndex(o=> o.id === id);
                 if(index !== -1){
-                    const temp=tasks.filter(a=> a.id !== id)
-                    setTasks(temp)
+                    getTasks()
+                 
                 }
         }
     },[tasks])
 
 
-    useEffect( () => {
-         getTasks(offset);
-    }, [getTasks, offset]);
+    // useEffect( () => {
+    //      getTasks(offset);
+    // }, [getTasks, offset]);
 
     useEffect(()=>{
         if(statesList.length==0){
@@ -80,7 +79,7 @@ export const TaskProvider = ({ children }) => {
     },[getStates, statesList])
 
     return (
-        <TaskContext.Provider value={{deleteTask,updateTask,statesList,saveTasks, tasks,getTasks, setTasks,count,limit }}>
+        <TaskContext.Provider value={{deleteTask,updateTask,statesList,saveTasks, tasks,getTasks, setTasks,count,limit,offset }}>
             {children}
         </TaskContext.Provider>
     );

@@ -3,13 +3,19 @@ import Modal from "../Modal/Modal";
 import NewTask from "./NewTask";
 import { useTask } from "../TaskContext/useTask";
 import { Pagination } from "../Pagination/Pagination";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Nodata from "../NoData/Nodata";
 
 const TaskList = () => {
     const [filter, setFilter] = useState(undefined);
+    const [once,setOnce]=useState(undefined);
     const { statesList, tasks, limit, count, getTasks } = useTask(filter)
-
+    useEffect(()=>{
+        if(!once){
+            getTasks(0)
+            setOnce(true)
+        }
+    },[getTasks, once])
     return (
         <div className="container mx-auto p-6">
             <h1 className="text-6xl font-extrabold text-foreground mb-8 text-center">Task Manager</h1>

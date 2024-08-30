@@ -32,7 +32,3 @@ export const Router = createBrowserRouter([
         ]
     }
 ]);
-
-// Example of Layout component structure
-// This Layout component renders common elements like the Navbar
-// and also renders the specific content for each route.

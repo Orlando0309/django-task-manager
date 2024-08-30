@@ -55,7 +55,7 @@ const NewTask = ({defaultTask}) => {
             type="date"
             id="dueDate"
             name="dueDate"
-            defaultValue={moment(defaultTask?.dueDate).format('YYYY-MM-DD')}
+            defaultValue={defaultTask?moment(defaultTask?.dueDate).format('YYYY-MM-DD'):""}
             className="mt-1 block w-full border border-border rounded-lg p-2 bg-input text-foreground placeholder:text-muted-foreground focus:ring focus:ring-ring transition duration-300 hover:bg-accent"
           />
         </div>
