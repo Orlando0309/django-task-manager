@@ -14,7 +14,7 @@ As asked, it can filter tasks by state
 2. **Install requirements:**
    ```bash
    cd task-manager-api
-   pip install -r requirements.txt
+   pip install -r tmapi/requirements.txt
    ```
 3. **Create database:**
    ```bash
@@ -52,7 +52,7 @@ As asked, it can filter tasks by state
 ### Project Structure
 ```
 project_name/
-├── task-manager-api/
+├── task-manager-api/tmapi/
 ├── manage.py
 ├── task
 │   ├── __init__.py
