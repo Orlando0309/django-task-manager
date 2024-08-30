@@ -1,3 +1,3 @@
-import Login from "../../components/Login/Login";
+import SignIn from "../../components/Login/SignIn";
 
-export default Login;
+export default SignIn;

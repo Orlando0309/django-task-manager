@@ -86,6 +86,6 @@ export const TaskProvider = ({ children }) => {
 };
 
 TaskProvider.propTypes = {
-    children: PropTypes.node.isRequired,  // Ensures that the children passed to the provider are a valid React node
+    children: PropTypes.node.isRequired,
 };
 

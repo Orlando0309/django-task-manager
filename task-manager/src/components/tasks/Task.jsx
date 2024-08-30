@@ -4,7 +4,7 @@ import { stateColors } from '../../constant';
 import moment from 'moment';
 import { useTask } from '../TaskContext/useTask';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'; // Import the specific icon
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import NewTask from './NewTask';
 
 

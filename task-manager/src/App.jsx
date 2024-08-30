@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from "./pages/HomePage/HomePage";
 import Login from "./pages/LoginPage/LoginPage";
+import SignUp from "./pages/SignUpPage/SignUpPage";
 import TaskList from "./pages/TaskListPage/TaskListPage";
 import { TaskProvider } from "./components/TaskContext/TaskContext";
 import Layout from "./components/Layout/Layout";
@@ -32,6 +33,7 @@ export default function App() {
 
             <Route index element={<HomePage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/task" element={
               <ProtectedRoute >
                 <TaskProvider>
