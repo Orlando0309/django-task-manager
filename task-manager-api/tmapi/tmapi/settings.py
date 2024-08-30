@@ -197,5 +197,5 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 
 CRONJOBS = [
-    ('*/2 * * * *', 'task.cron.my_cron_job')
+    ('0 18 * * *', 'task.cron.my_cron_job')
 ]
